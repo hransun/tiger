@@ -1,6 +1,6 @@
 package vehicle_builder.service;
 
-import vehicle_builder.model.Vehicle;
+import vehicle_builder.common.model.Vehicle;
 import vehicle_builder.util.SleepUtil;
 import java.util.HashMap;
 import java.util.Map;
