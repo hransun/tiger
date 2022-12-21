@@ -1,9 +1,12 @@
 /**
  * Created by Bob on 4/7/17.
  */
-package vehicle_builder.model;
+package vehicle_builder.common.model;
+
+import java.io.Serializable;
+
 // ctl + o parent's obj
-public abstract class Vehicle {
+public abstract class Vehicle implements Serializable {
     private String owner;
     private int price;
 
@@ -29,6 +32,12 @@ public abstract class Vehicle {
     }
 
     public abstract void start();
+
+    @Override
+    public String toString(){
+        return  String.format("%s buys %s at $%d",owner,this.getClass().getSimpleName(),getPrice());
+
+    }
 
     @Override
     public int hashCode() {

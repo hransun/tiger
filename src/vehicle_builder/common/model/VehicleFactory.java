@@ -1,4 +1,4 @@
-package vehicle_builder.model;
+package vehicle_builder.common.model;
 
 /**
  * Created by Bob on 4/7/17.

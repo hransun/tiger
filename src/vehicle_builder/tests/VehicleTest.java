@@ -1,9 +1,8 @@
 package vehicle_builder.tests;
 
-import vehicle_builder.model.Bike;
-import vehicle_builder.model.Car;
-import vehicle_builder.model.Vehicle;
-import vehicle_builder.model.VehicleFactory;
+import vehicle_builder.common.model.Car;
+import vehicle_builder.common.model.Vehicle;
+import vehicle_builder.common.model.VehicleFactory;
 
 /**
  * Created by Bob on 4/7/17.

@@ -1,2 +1,4 @@
-package vehicle_builder.server.service;public class CloseSessionResponse {
+package vehicle_builder.common.service;
+
+public class CloseSessionResponse extends VehicleBuilderResponse {
 }

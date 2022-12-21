@@ -1,7 +1,7 @@
 package vehicle_user;
 
-import vehicle_builder.adapter.VehicleBuilder;
-import vehicle_builder.adapter.VehicleBuilderImpl;
+import vehicle_builder.server.adapter.VehicleBuilder;
+import vehicle_builder.server.adapter.VehicleBuilderImpl;
 
 /**
  * Created by Bob on 4/7/17.
