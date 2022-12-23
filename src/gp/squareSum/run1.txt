@@ -1,0 +1,58 @@
+3 Result: 3
+Time: 0ms
+4 Result: 1
+Time: 0ms
+5 Result: 2
+Time: 0ms
+6 Result: 3
+Time: 0ms
+7 Result: 4
+Time: 0ms
+8 Result: 2
+Time: 0ms
+9 Result: 1
+Time: 0ms
+10 Result: 2
+Time: 0ms
+21 Result: 3
+Time: 0ms
+31 Result: 4
+Time: 0ms
+41 Result: 2
+Time: 9ms
+51 Result: 3
+Time: 274ms
+61 Result: 2
+Time: 6949ms
+
+=====
+
+class Perfect {
+    int search(int n ) {
+        int result=n;
+        for (int i = 1; i * i <= n ; i++) {
+            int temp = search(n - i*i);
+            if (temp+1 < result) result = temp+1;
+
+        }
+        return  result;
+    }
+}
+public class Solution {
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner in = new Scanner(new File("src/gp/squareSum/input.txt"));
+        int n = in.nextInt();
+        Perfect perfect = new Perfect();
+        while (n!= -1) {
+            long start = System.nanoTime();
+
+            System.out.println(n+ " Result: " + perfect.search(n));
+            long end = System.nanoTime();
+            System.out.println("Time: " + (end-start)/1000000 + "ms");
+            n = in.nextInt();
+        }
+
+        in.close();
+
+    }
+}
