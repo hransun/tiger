@@ -1,34 +1,49 @@
-package gp.squareSum;
+3 Result: 3
+Time: 0ms
+4 Result: 1
+Time: 0ms
+5 Result: 2
+Time: 0ms
+6 Result: 3
+Time: 0ms
+7 Result: 4
+Time: 0ms
+8 Result: 2
+Time: 0ms
+9 Result: 1
+Time: 0ms
+10 Result: 2
+Time: 0ms
+21 Result: 3
+Time: 0ms
+31 Result: 4
+Time: 0ms
+41 Result: 2
+Time: 0ms
+51 Result: 3
+Time: 0ms
+61 Result: 2
+Time: 0ms
+71 Result: 4
+Time: 0ms
+81 Result: 1
+Time: 0ms
+91 Result: 3
+Time: 0ms
+101 Result: 2
+Time: 0ms
+1001 Result: 3
+Time: 0ms
+100001 Result: 3
+Time: 20ms
+1000000 Result: 1
+Time: 0ms
+10000001 Result: 3
+Time: 2892ms
+100000001 Result: 2
+Time: 0ms
 
-import com.sun.deploy.security.CeilingPolicy;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Scanner;
-
-/**
- 对于一个非负整数n，最少需要几个完全平方数，使其和为n？
- 输入输出
- 输入
- •	第一行是n；如果n为-1，表示输入结束
- 输出
- •	针对每组数据，输出最少需要的完全平方数
- 示例输入
- 3
- 4
- 5
- -1
- 示例输出
- 3
- 1
- 2
-
- */
-
-
+====
 
 class Perfect {
     HashMap<Integer,Integer> cache;
@@ -73,11 +88,11 @@ class Perfect {
         processing.add(n);
         processing.add(-1);
         HashSet<Integer> used = new HashSet<>();
-        int  need = 1; // how many levels
-        while (!processing.isEmpty()) {
-            int  temp = processing.pollFirst(); // cur processing number
-            if (temp <0) { // why here calc level info , level info all is minus -1, -2, -3...
-                processing.addLast(temp-1); //
+        int  need = 1;
+        while (processing.isEmpty()==false) {
+            int  temp = processing.pollFirst();
+            if (temp <0) {
+                processing.addLast(temp-1);
                 need++;
             } else {
                 int ceiling  = (int) Math.pow(temp,0.5);

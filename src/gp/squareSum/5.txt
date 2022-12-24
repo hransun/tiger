@@ -1,0 +1,100 @@
+3 Result: 3
+Time: 0ms
+4 Result: 1
+Time: 0ms
+5 Result: 2
+Time: 0ms
+6 Result: 3
+Time: 0ms
+7 Result: 4
+Time: 0ms
+8 Result: 2
+Time: 0ms
+9 Result: 1
+Time: 0ms
+10 Result: 2
+Time: 0ms
+21 Result: 3
+Time: 0ms
+31 Result: 4
+Time: 0ms
+41 Result: 2
+Time: 0ms
+51 Result: 3
+Time: 0ms
+61 Result: 2
+Time: 0ms
+71 Result: 4
+Time: 0ms
+81 Result: 1
+Time: 0ms
+91 Result: 3
+Time: 0ms
+101 Result: 2
+Time: 0ms
+1001 Result: 3
+Time: 0ms
+100001 Result: 3
+Time: 54ms
+1000000 Result: 1
+Time: 0ms
+
+==
+
+class Perfect {
+    HashMap<Integer,Integer> cache;
+    int best;
+    Perfect() {
+        cache = new HashMap<>();
+    }
+    int search(int n , int depth) {
+        //prone
+        if (depth > best) return -1;
+        // cache result
+        if  (cache.containsKey(n)) {
+            return cache.get(n);
+
+        }
+            int result=-1;
+        //  start from n^0.5
+        int ceiling = (int)Math.sqrt(n);
+        if (ceiling*ceiling==n) {
+            result = 1;
+            if (depth<best) best = result;
+        }
+        else {
+            for (int i = ceiling; i>0 ; i--) {
+                int temp = search(n - i*i,depth+1);
+                if  (temp == -1) continue;
+
+                if (result == -1 || temp+1 < result) result = temp+1;
+                if (temp+depth < best) best = temp + depth;
+                if (temp == 1) break;
+
+            }
+                    }
+
+
+        if (result!= -1) cache.put(n,result);
+        return  result;
+    }
+}
+public class Solution {
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner in = new Scanner(new File("src/gp/squareSum/input.txt"));
+        int n = in.nextInt();
+        Perfect perfect = new Perfect();
+        while (n!= -1) {
+            long start = System.nanoTime();
+            perfect.best = n;
+
+            System.out.println(n+ " Result: " + perfect.search(n,1));
+            long end = System.nanoTime();
+            System.out.println("Time: " + (end-start)/1000000 + "ms");
+            n = in.nextInt();
+        }
+
+        in.close();
+
+    }
+}
