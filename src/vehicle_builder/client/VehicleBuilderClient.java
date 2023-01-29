@@ -1,8 +1,5 @@
 package vehicle_builder.client;
 
-import tree.TreeNode;
-import vehicle_builder.common.service.SocketConnector;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
