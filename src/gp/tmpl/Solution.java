@@ -1,4 +1,4 @@
-package gp.clonegraph;
+package gp.tmpl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -51,6 +51,7 @@ class Node {
 
     }
 }
+
 public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner in = new Scanner(new File("src/gp/clonegraph/input.txt"));
